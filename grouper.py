@@ -50,11 +50,11 @@ if flag==False: #if there are no exceptions, start from here
   pick1=random.choice(students) #pick 1 student
   picked.append(pick1) #student is picked
   students.remove(pick1) #picked student removed from pool
-  while len(picked)<pergroup: #keep picking students until there are enough for 1 group
-   print(grouped)
+  while len(picked)<pergroup or len(students)>0: #keep picking students until there are enough for 1 group
    pick2=random.choice(students)
    picked.append(pick2)
    students.remove(pick2)
+   if len(picked)>=pergroup or len(students)==0: break
   if len(students)==1: #take in straggler
    picked.append(students[0])
    students.remove(students[0])
