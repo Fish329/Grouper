@@ -8,7 +8,7 @@ exceptions=0 #the number of exceptions that have been made. the max is 4
 print("Students:")
 for x in students:
  print(x)
-pergroup=int(input("divide into groups of how many? (2-4)")) #input group size
+perGroup=int(input("divide into groups of how many? (2-4)")) #input group size
 if input("Is there anyone that can't be grouped together? (y/n)")=="y":
  flag=True
  while True: #exception loop
@@ -35,7 +35,7 @@ if input("Is there anyone that can't be grouped together? (y/n)")=="y":
   pick1=notThem[0] #pick first student in shuffled list
   picked.append(pick1) #student is picked
   notThem.pop(0) #remove picked student from list
-  while len(picked)<pergroup: #keep picking students until we have enough for one group
+  while len(picked)<perGroup: #keep picking students until we have enough for one group
    pick2=random.choice(students)
    picked.append(pick2)
    students.remove(pick2)
@@ -50,11 +50,11 @@ if flag==False: #if there are no exceptions, start from here
   pick1=random.choice(students) #pick 1 student
   picked.append(pick1) #student is picked
   students.remove(pick1) #picked student removed from pool
-  while len(picked)<pergroup or len(students)>0: #keep picking students until there are enough for 1 group
+  while len(picked)<perGroup or len(students)>0: #keep picking students until there are enough for 1 group
    pick2=random.choice(students)
    picked.append(pick2)
    students.remove(pick2)
-   if len(picked)>=pergroup or len(students)==0: break
+   if len(picked)>=perGroup or len(students)==0: break
   if len(students)==1: #take in straggler
    picked.append(students[0])
    students.remove(students[0])
