@@ -1,6 +1,6 @@
 import random
 students=["alice","bob","catherine","dan","elanor","frank","gianna","harry","iris","justin","katy","link","mary","nick","oprah","pat","quinn","ryan","sam","tom"] #list of students
-notthem=list() #list of exceptions 
+notThem=list() #list of exceptions 
 grouped=list() #list of groups
 picked=list() #for storing students about to be grouped
 flag=False #true when exceptions should be empty
@@ -17,9 +17,9 @@ if input("Is there anyone that can't be grouped together? (y/n)")=="y":
   each student can only be involved in 1 exception.
   =================================================
   write the names of two students that cant be grouped together, separated by commas, with no spaces: """)
-  if not which.split(",")[0] in notthem and not which.split(",")[1] in notthem:
-    notthem.append(which.split(",")[0]) #put pair in list
-    notthem.append(which.split(",")[1])
+  if not which.split(",")[0] in notThem and not which.split(",")[1] in notThem:
+    notThem.append(which.split(",")[0]) #put pair in list
+    notThem.append(which.split(",")[1])
     exceptions+=1
   if input("Anyone else? (y/n)")=="n": break #stop getting exceptions
   else:
@@ -27,14 +27,14 @@ if input("Is there anyone that can't be grouped together? (y/n)")=="y":
     print("Sorry, too many exceptions!")
     break
  itr=0
- for i in notthem:
-  students.remove(notthem[itr])
+ for i in notThem:
+  students.remove(notThem[itr])
   itr+=1
- random.shuffle(notthem) #shuffle exception list
- while len(notthem)>0: #until all excepted students are grouped
-  pick1=notthem[0] #pick first student in shuffled list
+ random.shuffle(notThem) #shuffle exception list
+ while len(notThem)>0: #until all excepted students are grouped
+  pick1=notThem[0] #pick first student in shuffled list
   picked.append(pick1) #student is picked
-  notthem.pop(0) #remove picked student from list
+  notThem.pop(0) #remove picked student from list
   while len(picked)<pergroup: #keep picking students until we have enough for one group
    pick2=random.choice(students)
    picked.append(pick2)
